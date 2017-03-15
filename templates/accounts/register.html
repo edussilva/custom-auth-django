@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+
+{% block main %}
+    <h2>Registro</h2>
+    <form action="" method="post">
+        {% csrf_token %}
+        <fieldset>
+            <legend>User</legend>
+            {{ form.as_p }}
+        </fieldset>
+        <fieldset>
+            <legend>Profile</legend>
+            {{ form_profile.as_p }}
+        </fieldset>
+
+        <button type="submit">Cadastrar</button>
+    </form>
+{% endblock %}

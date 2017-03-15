@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Custom Users</title>
+    <style type="text/css">
+        .container{padding: 20px 30px;}
+    </style>
+</head>
+<body>
+    <header class="container">
+        <div>
+            <a href="{% url 'home' %}">Início</a>
+        </div>
+        {% if user.is_authenticated %}
+        <p>Bem vindo, {{ user.get_short_name }}</p>
+        <a href="{% url 'logout' %}">Logout</a>
+        {% else %}
+        <a href="{% url 'accounts:register'%}">Registrar</a>
+        <a href="{% url 'login' %}">Login</a>
+        {% endif%}
+    </header>
+    <section class="main">
+        {% block main %}{% endblock %}
+    </section>
+</body>
+</html>
